@@ -1,0 +1,282 @@
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    background: url(../img/rat.gif);
+}
+.layout {
+    background-color: #202225e6;
+    display: flex;
+}
+/* Шапка */
+header {
+    background-color: #202225;
+    width: 100%;
+    height: 20px;
+    display: flex;
+}
+.NotDiscord {
+    color: #a3a6aa;
+    padding-left: 15px;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 15px;
+    font-stretch: ultra-condensed;
+    display: flex;
+}
+.ControllButtonsHolder {
+    display: flex;
+    width: 75px;
+    margin-left: auto;
+}
+.MinimizeButton {
+    width: 25px;
+    height: 100%;
+    text-align: center;
+    transition: 0.4s;
+}
+.MinimizeButton:hover {
+    background-color: #4f545c29;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.MaximizeButton {
+    width: 25px;
+    height: 100%;
+    text-align: center;
+    transition: 0.4s;
+}
+.MaximizeButton:hover {
+    background-color: #4f545c29;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.CloseButton {
+    width: 25px;
+    height: 100%;
+    text-align: center;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.CloseButton:hover {
+    background-color: #ED4245;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.ControllImg {
+    height: 15px;
+    width: 15px;
+
+}
+/* Боковушка */
+aside {
+    background-color: #202225;
+    height: 100%;
+    width: 72px;
+    display: flex;
+    min-height: 98vh;
+    flex-direction: column;
+    align-items: center;
+}
+.PagesContainer {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.RatPages {
+    height: 48px;
+    width: 48px;
+    margin-top: 10px;
+}
+.RatPagesImg {
+    height: 48px;
+    width: 48px;
+    border-radius: 100%;
+}
+/* Основная инфа */
+article {
+    background-color: #36393fb3;
+    display: flex;
+    flex-direction: column;
+    min-height: 98vh;
+}
+/* Музыкальный плейлист */
+.MusicPlayList {
+    left: 0;
+    bottom: 0;
+    padding: 10px 10px;
+    background-color: #2f3136e6;
+    height: 100%;
+    width: 240px;
+    color: #ffffff;
+    max-height: 730px;
+    overflow-y:auto;
+}
+.MusicPlayList::-webkit-scrollbar {
+    width: 5px;
+}
+.MusicPlayList::-webkit-scrollbar-thumb {
+    background-color: #202225;
+    border-radius: 20px;
+  }
+.MusicPlayList .RatRow {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+.RatRow {
+    border-bottom: 1px solid #3b3e45;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5%;
+}
+.RatRow:hover {
+    background-color: #4f545c99;
+    transition: 0.4s;
+}
+.AudioDuration {
+    padding: 5px;
+}
+section {
+    background-color: #36393ff5;
+    width: 100%;
+}
+.FindTrackPlaceHolder {
+    background-color: #292b2f;
+    width: 100%;
+    height: 50px;
+}
+.FindTrack {
+    background-color: #202225;
+    width: 90%;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #909297;
+    padding: 5px;
+}
+.MusicPlayerController {
+    background-color: #292b2f;
+    width: 100%;
+    height: 178px;
+}
+.RatAreaProgressBar {
+    height: 6px;
+    width: 100%;
+    background: #3b3e45;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.RatAreaProgressBar .RatProgressBar {
+    height: inherit;
+    width: 50%;
+    position: relative;
+    border-radius: inherit;
+    background: #ffffff;
+}
+.RatProgressBar::before {
+    content: "";
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background: #000;
+    border-radius: inherit;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    background: inherit;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.RatAreaProgressBar:hover .RatProgressBar::before {
+    opacity: 1;
+}
+.RatTimer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #cccdd9;
+    padding: 5px;
+}
+.RatTimer span {
+    font-size: 16px;
+}
+.RatTrackInfo {
+    display: flex;
+    align-items: center;
+}
+.DefaultCurrentTrackImg {
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+    margin: 8px;
+}
+.DefaultCurrentTrackImg:hover {
+    filter: brightness(0.8);
+}
+.CurrentTrackName {
+    color: #ffffff;
+}
+.RatRepeatButton {
+    margin-bottom: 7px;
+    margin-left: 5px;
+}
+.RatRepeatButton:hover {
+    background-color: #4f545c99;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.RatRepeat {
+    height: 25px;
+    width: 25px;
+}
+.ButtonsController {
+    display: flex;
+    width: 100%;
+    height: 15px;
+    justify-content: space-evenly;
+}
+.PrewTrack {
+    height: 35px;
+    width: 35px;
+}
+.PrewTrack:hover {
+    background-color: #4f545c99;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.StartOrPause {
+    height: 35px;
+    width: 35px;
+}
+.StartOrPause:hover {
+    background-color: #4f545c99;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.NextTrack {
+    height: 35px;
+    width: 35px;
+}
+.NextTrack:hover {
+    background-color: #4f545c99;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+/* 202225e6*/
+/* 202225*/
+/* 6d7177*/
+/* 2f3136*/
+/* 202225*/
+/* 36393f63*/

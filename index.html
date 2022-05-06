@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScripts -->
+    <script src="scripts/ControllButtons.JS"></script>
+    <script src="scripts/MusicList.JS"></script>
+    <script src="scripts/Script.JS"></script>
+    <!-- Other -->
+    <link rel="icon" href="img/icons/icon.png" type="image">
+    <title>SkyRat.DEV</title>
+
+    <!-- DANGEROUS_WATCH_THIS_ONLY_IF_YOU_KNOW_WHATS_IS_IT_MEAN -->
+ 
+</head>
+<body>
+    <header>
+        <!--Название сайта-->
+        <div class="NotDiscord">
+            SkyRatDev
+        </div>
+        <!--Кнопки контроля браузера-->
+        <div class="ControllButtonsHolder">
+            <div class="MinimizeButton"><img class="ControllImg" src="img/icons/minus.png" onclick="minimizeWindow();"></div>
+            <div class="MaximizeButton"><img class="ControllImg" src="img/icons/expand.png" onclick="maximizeWindow();"></div>
+            <div class="CloseButton"><img class="ControllImg" src="img/icons/cross.png" onclick="closeWindow();"></div>
+        </div>
+    </header>
+    <div class="layout">
+        <!-- Боковая панель -->
+        <aside>
+            <!-- Страницы -->
+            <div class="PagesContainer">
+                <div class="RatPages">
+                    <a class="RatPagesLink" href="#">
+                        <div class="RatPages">
+                            <img class="RatPagesImg" src="img/MainPageRat.gif" alt="Крыса">
+                        </div>
+                    </a>
+                </div>
+                <div class="RatPages">
+                    <a class="RatPagesLink" href="#">
+                        <div class="RatPages">
+                            <img class="RatPagesImg" src="img/MainPageRat.gif" alt="Крыса">
+                        </div>
+                    </a>
+                </div>
+                <div class="RatPages">
+                    <a class="RatPagesLink" href="#">
+                        <div class="RatPages">
+                            <img class="RatPagesImg" src="img/MainPageRat.gif" alt="Крыса">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </aside>
+        <!-- Заголовок -->
+        <article>
+            <div class="FindTrackPlaceHolder">
+                <div class="FindTrack" contenteditable="true">
+                    <span>Найти трек</span>
+                </div>
+            </div>
+            <div class="MusicPlayList">
+                <div class="RatRow">
+                    <div class="RatRowInfo">
+                        <span>МУККА - ДЕВОЧКА С КАРЕ</span>
+                    </div>
+                    <span class="AudioDuration">2:39</span>
+                </div>
+                <div class="RatRow">
+                    <div class="RatRowInfo">
+                        <span>МУККА - ДЕВОЧКА С КАРЕ</span>
+                    </div>
+                    <span class="AudioDuration">2:39</span>
+                </div>
+            </div>
+            <div class="MusicPlayerController">
+                <div class="RatAreaProgressBar">
+                    <div class="RatProgressBar"></div>
+                </div>
+                <div class="RatTimer">
+                    <span class="CurrentTrackTime">0:00</span>
+                    <span class="MaxTrackTime">0:00</span>
+                </div>
+                <audio class="currentAudio" src=""></audio>
+               <!--<audio controls src="sounds/Areas_N-Word_4.mp3">Пидорас</audio> -->
+                <div class="RatTrackInfo">
+                    <img src="img/MainPageRat.gif" class="DefaultCurrentTrackImg">
+                    <p class="CurrentTrackName">[TEST]</p>
+                    <div class="RatRepeatButton">
+                        <img class="RatRepeat" src="img/icons/RepeatButton.png">
+                    </div>
+                </div>
+                <div class="ButtonsController">
+                    <div>
+                        <img src="img/icons/PrewButton.png" class="PrewTrack">
+                    </div>
+                    <div>
+                        <img src="img/icons/OnOffButton.png" class="StartOrPause">
+                    </div>
+                    <div>
+                        <img src="img/icons/NextButton.png" class="NextTrack">
+                    </div>
+                </div>
+            </div>
+        </article>
+        <section>
+                
+        </section>
+    </div>
+</body>
+</html>
