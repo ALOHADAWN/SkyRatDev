@@ -35,7 +35,8 @@ function pauseMusic() {
 }
 function nextMusic() {
     musicIndex++;
-    musicIndex > AllMusic.length ? musicIndex = 0 : musicIndex = musicIndex;
+    //musicIndex > AllMusic.length ? musicIndex = 0 : musicIndex = musicIndex;
+    musicIndex < AllMusic.length ? musicIndex = musicIndex : musicIndex = 0;
     loadMusic(musicIndex);
     playMusic();
     console.log(musicIndex);
@@ -45,6 +46,7 @@ function prevMusic() {
     musicIndex < 0 ? musicIndex = AllMusic.length : musicIndex = musicIndex; 
     loadMusic(musicIndex);
     playMusic();
+    console.log(musicIndex);
 }
 musicPlayPause.addEventListener("click", ()=> {
     const isMusicPaused = layout.classList.contains("paused");
