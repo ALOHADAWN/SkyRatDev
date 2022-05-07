@@ -8,5 +8,15 @@ let AllMusic = [
         name: "Harvey Myers - N-word Areas",
         image: "img/Niggers.jpg",
         path: "sounds/Niggers.mp3"
+    },
+    {
+        name: "UwU Phonky",
+        image: "img/UwU.jpg",
+        path: "sounds/UwUPhonky.mp3"
+    },
+    {
+        name: "BLOODYSHADOW",
+        image: "img/BloodyShadow.jpg",
+        path: "sounds/BLOODYSHADOW.mp3"
     }
 ]
