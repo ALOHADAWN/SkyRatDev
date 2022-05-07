@@ -74,6 +74,8 @@ currentAudio.addEventListener("timeupdate", (e)=> {
         }
         musicDuration.innerText = `${totalMin}:${totalSec}`;
     });
+
+
     let currentMin = Math.floor(currentTime / 60);
     let currentSec = Math.floor(currentTime % 60);
     if (currentSec < 10) {
@@ -81,7 +83,7 @@ currentAudio.addEventListener("timeupdate", (e)=> {
     }
     musicCurrentTime.innerText = `${currentMin}:${currentSec}`;
 });
-progressArea.addEventListener("click", ()=> {
+progressArea.addEventListener("click", (e)=> {
     let progressWidthValue = progressArea.clientWidth;
     let clickedOffSetX = e.offsetX;
     let songDuration = currentAudio.duration;

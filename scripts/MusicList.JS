@@ -8,5 +8,5 @@ let AllMusic = [
         name: "Harvey Myers - N-word Areas",
         image: "img/Niggers.jpg",
         path: "sounds/Niggers.mp3"
-    },
+    }
 ]
