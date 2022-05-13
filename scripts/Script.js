@@ -7,7 +7,14 @@ musicPlayPause = layout.querySelector(".StartOrPause"),
 prevBtn = layout.querySelector(".PrewTrack"),
 nextBtn = layout.querySelector(".NextTrack"),
 progressArea = layout.querySelector(".RatAreaProgressBar"),
-progressBar = layout.querySelector(".RatProgressBar");
+progressBar = layout.querySelector(".RatProgressBar"),
+repeatBtn = layout.querySelector(".RatRepeatButton");
+let currentPlayerState = 0;/*
+0 = normal
+1 = repeat
+2 = repeatOne
+3 = shuffle
+*/
 
 
 let musicIndex = 0;
@@ -23,13 +30,13 @@ function loadMusic(indexNumber) {
 }
 
 function playMusic() {
-    layout.classList.add("paused");
+    layout.classList.add("playing");
     //musicPlayPause.querySelector("i").innerText = "pause";
     currentAudio.play();
 }
 
 function pauseMusic() {
-    layout.classList.remove("paused");
+    layout.classList.remove("playing");
     //musicPlayPause.querySelector("i").innerText = "play";
     currentAudio.pause();
 }
@@ -48,7 +55,7 @@ function prevMusic() {
     console.log(musicIndex);
 }
 musicPlayPause.addEventListener("click", ()=> {
-    const isMusicPaused = layout.classList.contains("paused");
+    const isMusicPaused = layout.classList.contains("playing");
     isMusicPaused ? pauseMusic() : playMusic();
 });
 nextBtn.addEventListener("click", ()=> {
@@ -92,5 +99,126 @@ progressArea.addEventListener("click", (e)=> {
     currentAudio.currentTime = (clickedOffSetX / progressWidthValue) * songDuration;
     playMusic();
 });
+/*
+repeatBtn.addEventListener("click", ()=>{
+    let getState = repeatBtn.getAttribute("playerState");
+    //alert(getState);
+    switch(getState) {
+        case "normal":
+            currentPlayerState = 0;
+            repeatBtn.setAttribute("title", "Playlist normal queue");
+            repeatBtn.setAttribute("playerState", "repeat");
+            break;
+        case "repeat":
+            //repeatBtn.classList.hasClass()
+            currentPlayerState = 1;
+            repeatBtn.setAttribute("title", "Playlist looped");
+            repeatBtn.setAttribute("playerState", "repeat");
+            break;
+        case "repeatOne":
+            //repeatBtn.classList.add("shuffle");
+            currentPlayerState = 2;
+            repeatBtn.setAttribute("title", "Playlist looped");
+            repeatBtn.setAttribute("playerState", "shuffle");
+            break;
+        case "shuffle":
+            //repeatBtn.classList.add("repeatPlaylist");
+            currentPlayerState = 3;
+            repeatBtn.setAttribute("title", "Playlist shuffle");
+            repeatBtn.setAttribute("playerState", "normal");
+            break;       
+    }
+});
+*/
+repeatBtn.addEventListener("click", ()=>{
+    PlayerState = repeatBtn.getAttribute("playerState");
+    /**
+     * 
+     * Мы здесь работаем, переключая сейты в будущее
+     * По сути переменная с номером - джля работы плеера
+     * Типо 0 - завершаем
+     * 1 - повторяем и т.п
+     */
+    switch(PlayerState) {
+        default:
+            //repeatBtn.setAttribute("title", "Normal playlist queue");
+            repeatBtn.setAttribute("title", "Repeating playlist queue");
+            repeatBtn.setAttribute("playerState", "repeat");
+            currentPlayerState = 1;
+        break;
+        // case "":
+        // break;
+        case "repeat":
+            //console.log("repeat");
+            repeatBtn.setAttribute("title", "Song looped");
+            repeatBtn.setAttribute("playerState", "repeatOne");
+            currentPlayerState = 2;
+        break;
+        case "repeatOne":
+            //console.log("repeatOne");
+            repeatBtn.setAttribute("title", "Playlist shuffle queue");
+            repeatBtn.setAttribute("playerState", "shuffle");
+            currentPlayerState = 3;
+        break;
+        case "shuffle":
+            //console.log("shuffle");
+            repeatBtn.setAttribute("title", "Normal playlist queue");
+            repeatBtn.setAttribute("playerState", "normal");
+            currentPlayerState = 0;
+        break;
+        
+    }
+
+    console.log(PlayerState);
+    console.log(currentPlayerState);
+});
+currentAudio.addEventListener("ended", ()=> {
+    let getState = repeatBtn.getAttribute("playerState");
+
+    switch(getState) {
+        case "repeat":
+            //repeatBtn.classList.hasClass()
+            nextMusic();
+            break;
+        case "repeatOne":
+            //repeatBtn.classList.add("shuffle");
+            currentAudio.currentTime = 0;
+            loadMusic(musicIndex);
+            playMusic();
+            break;
+        case "shuffle":
+            //repeatBtn.classList.add("repeatPlaylist");
+            /*
+            do {
+                randomIndex = Math.floor((Math.random() * AllMusic.length) + 1);
+            }//while(musicIndex == randomIndex);*/
+            randomIndex = Math.random() * 100;
+            do {
+                randomIndex = Math.random() * 100;
+                //console.log(randomIndex);
+            }while(randomIndex > AllMusic.length)
+            musicIndex = Math.floor(randomIndex);
+            loadMusic(musicIndex);
+            playMusic();
+            break;
+        default:
+
+            break;
+            
+    }
+});
+let RatMusicPlaylist = layout.querySelector(".MusicPlayList");
+for (let i = 0; i < AllMusic.length; i++) {
+    let AllSoundTracks = `<div class="RatRow">
+    <div class="RatRowInfo">
+        <span>${AllMusic[i].name}</span>
+    </div>
+    <audio class="${AllMusic[i].path}" src="${AllMusic[i].path}}"></audio>
+    <span class="${AllMusic[i].path}"></span>
+    </div>`;
+    AllSoundTracks.insertAdjacentHTML("beforeend", AllSoundTracks);
+
+    let TrackAudioDuration = RatMusicPlaylist.querySelector(`.${AllMusic[i].path}`)
+}
 }
 document.addEventListener("DOMContentLoaded", ready);
